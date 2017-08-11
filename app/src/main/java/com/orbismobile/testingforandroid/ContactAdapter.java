@@ -1,8 +1,6 @@
 package com.orbismobile.testingforandroid;
 
-import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,9 +56,9 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactI
     @Override
     public void onBindViewHolder(ContactItemViewHolder holder, int position) {
         if (contactEntities.get(position).isSelected()) {
-            holder.imgSelected.setVisibility(View.VISIBLE);
+            holder.flContainer.setBackgroundResource(R.color.md_grey_300);
         } else {
-            holder.imgSelected.setVisibility(View.INVISIBLE);
+            holder.flContainer.setBackgroundResource(android.R.color.transparent);
         }
 
     }

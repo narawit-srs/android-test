@@ -75,13 +75,13 @@ public class MainActivity extends AppCompatActivity implements ContactAdapter.On
 
     @Override
     public void onContactItemClick(int position) {
-        Toast.makeText(this, "HOLA", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "onClick", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onContactLongItemClick(int position) {
-        Toast.makeText(this, "long", Toast.LENGTH_SHORT).show();
-        actionMode = startSupportActionMode(actionModeCallback);
+        Toast.makeText(this, "onLongClick", Toast.LENGTH_SHORT).show();
+        //actionMode = startSupportActionMode(actionModeCallback);
 
         contactAdapter.toggleSelection(position);
     }
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements ContactAdapter.On
         public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
             if (item.getItemId() == R.id.action_select_all) {
 
-                Toast.makeText(MainActivity.this, "VEEE", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "YEAH!", Toast.LENGTH_SHORT).show();
                 mode.finish();
                 return true;
             }
