@@ -1,4 +1,4 @@
-package com.orbismobile.testingforandroid;
+package com.orbismobile.testingforandroid.view.contact;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -8,15 +8,18 @@ import android.support.v7.view.ActionMode;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
+
+import com.orbismobile.testingforandroid.R;
+import com.orbismobile.testingforandroid.model.entities.ContactEntity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements ContactAdapter.OnContactItemClickListener{
+public class ContactActivity extends AppCompatActivity implements ContactAdapter.OnContactItemClickListener{
 
     private List<ContactEntity> contactEntityList = new ArrayList<>();
     private ActionMode actionMode;
@@ -27,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements ContactAdapter.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_contact);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -41,7 +44,8 @@ public class MainActivity extends AppCompatActivity implements ContactAdapter.On
         rcvContact.setItemAnimator(new DefaultItemAnimator());
         contactAdapter.setOnContactItemClickListener(this);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,28 +53,6 @@ public class MainActivity extends AppCompatActivity implements ContactAdapter.On
                         .setAction("Action", null).show();
             }
         });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -103,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements ContactAdapter.On
         public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
             if (item.getItemId() == R.id.action_select_all) {
 
-                Toast.makeText(MainActivity.this, "YEAH!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ContactActivity.this, "YEAH!", Toast.LENGTH_SHORT).show();
                 mode.finish();
                 return true;
             }
@@ -115,4 +97,5 @@ public class MainActivity extends AppCompatActivity implements ContactAdapter.On
             actionMode = null;
         }
     }
+
 }

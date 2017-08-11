@@ -1,4 +1,4 @@
-package com.orbismobile.testingforandroid;
+package com.orbismobile.testingforandroid.model.entities;
 
 /**
  * Created by carlosleonardocamilovargashuaman on 8/9/17.
