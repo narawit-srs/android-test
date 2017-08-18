@@ -36,8 +36,9 @@ public class ContactActivity extends AppCompatActivity implements ContactAdapter
 
         RecyclerView rcvContact = findViewById(R.id.rcvContact);
 
-        contactEntityList.add(new ContactEntity("Carlos Leonardo Camilo", "carlitosdroid12@gmail.com"));
-        contactEntityList.add(new ContactEntity("Jan Sanchez", "jansanchez@gmail.com"));
+        for (int i = 0; i < 500; i++) {
+            contactEntityList.add(new ContactEntity("item " + i, "droid " + i));
+        }
 
         contactAdapter = new ContactAdapter(contactEntityList);
         rcvContact.setAdapter(contactAdapter);
@@ -57,7 +58,7 @@ public class ContactActivity extends AppCompatActivity implements ContactAdapter
 
     @Override
     public void onContactItemClick(int position) {
-        Toast.makeText(this, "onClick", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "item clicked " + position, Toast.LENGTH_SHORT).show();
     }
 
     @Override

@@ -17,5 +17,6 @@
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager"/>
 </android.support.constraint.ConstraintLayout>

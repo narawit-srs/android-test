@@ -63,7 +63,8 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactI
         } else {
             holder.flContainer.setBackgroundResource(android.R.color.transparent);
         }
-
+        holder.lblTitle.setText(contactEntities.get(position).getName());
+        holder.lblDescription.setText(contactEntities.get(position).getEmail());
     }
 
     @Override
@@ -71,7 +72,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactI
         return contactEntities.size();
     }
 
-    class ContactItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
+    public class ContactItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         FrameLayout flContainer;
         ImageView imgContact;
         ImageView imgSelected;
