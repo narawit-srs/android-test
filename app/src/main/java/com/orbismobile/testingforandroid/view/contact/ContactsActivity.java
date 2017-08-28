@@ -39,7 +39,11 @@ public class ContactsActivity extends AppCompatActivity implements ContactsAdapt
         RecyclerView rcvContact = findViewById(R.id.rcvContact);
 
         for (int i = 0; i < 100; i++) {
-            contactEntityList.add(new ContactEntity("Contact " + i, "carlos@gmail " + i));
+            if (i == 10) {
+                contactEntityList.add(new ContactEntity("Contact " + i, "carlos@gmail " + i, true));
+            } else {
+                contactEntityList.add(new ContactEntity("Contact " + i, "carlos@gmail " + i, false));
+            }
         }
 
         contactsAdapter = new ContactsAdapter(contactEntityList);

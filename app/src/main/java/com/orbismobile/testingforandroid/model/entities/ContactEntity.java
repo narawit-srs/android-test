@@ -13,9 +13,10 @@ public class ContactEntity {
     public ContactEntity() {
     }
 
-    public ContactEntity(String name, String email) {
+    public ContactEntity(String name, String email, boolean selected) {
         this.name = name;
         this.email = email;
+        this.selected = selected;
     }
 
     public String getName() {

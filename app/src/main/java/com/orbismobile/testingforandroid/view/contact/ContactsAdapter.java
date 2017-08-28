@@ -62,20 +62,33 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
     @Override
     public void onBindViewHolder(ContactItemViewHolder holder, int position) {
         if (contactEntities.get(position).isSelected()) {
-            holder.flContainer.setBackgroundResource(R.color.md_grey_300);
+            holder.itemView.setActivated(true);
+            holder.flContainer.setBackgroundResource(R.color.md_grey_200);
         } else {
-            holder.flContainer.setBackgroundResource(android.R.color.transparent);
+            holder.itemView.setActivated(false);
+            holder.flContainer.setBackgroundResource(R.color.md_white_1000);
         }
 
-        if (position == 10) {
+        if(position == 2){
+            holder.btnFake.setVisibility(View.VISIBLE);
+            holder.btnFake.setEnabled(false);
+        }else if(position == 4){
+            holder.btnFake.setVisibility(View.VISIBLE);
+            holder.btnFake.setEnabled(true);
+        }else{
+            holder.btnFake.setVisibility(View.INVISIBLE);
+            holder.btnFake.setEnabled(true);
+        }
+
+        if (position == 6) {
             holder.lblTitle.setText("Get hands-on with");
             holder.lblTitle.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.md_red_600));
-            holder.lblDescription.setText(contactEntities.get(position).getEmail());
         } else {
             holder.lblTitle.setText(contactEntities.get(position).getName());
             holder.lblTitle.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.md_grey_700));
-            holder.lblDescription.setText(contactEntities.get(position).getEmail());
         }
+
+        holder.lblDescription.setText(contactEntities.get(position).getEmail());
     }
 
     @Override
@@ -87,9 +100,9 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
         FrameLayout flContainer;
         ImageView imgContact;
         ImageView imgSelected;
-        TextView lblTitle;
+        public TextView lblTitle;
         TextView lblDescription;
-        Button btnFake;
+        public Button btnFake;
 
         private ContactItemViewHolder(View itemView) {
             super(itemView);
@@ -111,6 +124,13 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
                     Toast.makeText(itemView.getContext(), "position: " +getAdapterPosition(), Toast.LENGTH_SHORT).show();
                     break;
                 default:
+                    if(contactEntities.get(getAdapterPosition()).isSelected()){
+                        itemView.setActivated(false);
+                        flContainer.setBackgroundResource(R.color.md_white_1000);
+                    }else{
+                        flContainer.setBackgroundResource(R.color.md_grey_200);
+                        itemView.setActivated(true);
+                    }
                     onContactItemClickListener.onContactItemClick(getAdapterPosition());
                     break;
             }
