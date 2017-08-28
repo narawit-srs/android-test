@@ -1,12 +1,15 @@
 package com.orbismobile.testingforandroid.view.contact;
 
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.orbismobile.testingforandroid.model.entities.ContactEntity;
 import com.orbismobile.testingforandroid.R;
@@ -17,11 +20,11 @@ import java.util.List;
  * Created by carlosleonardocamilovargashuaman on 8/9/17.
  */
 
-public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactItemViewHolder> {
+public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ContactItemViewHolder> {
 
     private List<ContactEntity> contactEntities;
 
-    ContactAdapter(List<ContactEntity> contactEntities) {
+    ContactsAdapter(List<ContactEntity> contactEntities) {
         this.contactEntities = contactEntities;
     }
 
@@ -63,8 +66,16 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactI
         } else {
             holder.flContainer.setBackgroundResource(android.R.color.transparent);
         }
-        holder.lblTitle.setText(contactEntities.get(position).getName());
-        holder.lblDescription.setText(contactEntities.get(position).getEmail());
+
+        if (position == 10) {
+            holder.lblTitle.setText("Get hands-on with");
+            holder.lblTitle.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.md_red_600));
+            holder.lblDescription.setText(contactEntities.get(position).getEmail());
+        } else {
+            holder.lblTitle.setText(contactEntities.get(position).getName());
+            holder.lblTitle.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.md_grey_700));
+            holder.lblDescription.setText(contactEntities.get(position).getEmail());
+        }
     }
 
     @Override
@@ -78,6 +89,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactI
         ImageView imgSelected;
         TextView lblTitle;
         TextView lblDescription;
+        Button btnFake;
 
         private ContactItemViewHolder(View itemView) {
             super(itemView);
@@ -86,13 +98,23 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactI
             imgContact = itemView.findViewById(R.id.imgContact);
             lblTitle = itemView.findViewById(R.id.lblTitle);
             lblDescription = itemView.findViewById(R.id.lblDescription);
+            btnFake = itemView.findViewById(R.id.btnFake);
             flContainer.setOnClickListener(this);
             flContainer.setOnLongClickListener(this);
+            btnFake.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
-            onContactItemClickListener.onContactItemClick(getAdapterPosition());
+            switch (view.getId()){
+                case R.id.btnFake:
+                    Toast.makeText(itemView.getContext(), "position: " +getAdapterPosition(), Toast.LENGTH_SHORT).show();
+                    break;
+                default:
+                    onContactItemClickListener.onContactItemClick(getAdapterPosition());
+                    break;
+            }
+
         }
 
         @Override

@@ -1,5 +1,6 @@
 package com.orbismobile.testingforandroid.view.contact;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,17 +16,18 @@ import android.widget.Toast;
 
 import com.orbismobile.testingforandroid.R;
 import com.orbismobile.testingforandroid.model.entities.ContactEntity;
+import com.orbismobile.testingforandroid.view.contactdetail.ContactDetailActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContactActivity extends AppCompatActivity implements ContactAdapter.OnContactItemClickListener{
+public class ContactsActivity extends AppCompatActivity implements ContactsAdapter.OnContactItemClickListener {
 
     private List<ContactEntity> contactEntityList = new ArrayList<>();
     private ActionMode actionMode;
     private ActionModeCallback actionModeCallback = new ActionModeCallback();
 
-    ContactAdapter contactAdapter;
+    ContactsAdapter contactsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,14 +38,14 @@ public class ContactActivity extends AppCompatActivity implements ContactAdapter
 
         RecyclerView rcvContact = findViewById(R.id.rcvContact);
 
-        for (int i = 0; i < 500; i++) {
-            contactEntityList.add(new ContactEntity("item " + i, "droid " + i));
+        for (int i = 0; i < 100; i++) {
+            contactEntityList.add(new ContactEntity("Contact " + i, "carlos@gmail " + i));
         }
 
-        contactAdapter = new ContactAdapter(contactEntityList);
-        rcvContact.setAdapter(contactAdapter);
+        contactsAdapter = new ContactsAdapter(contactEntityList);
+        rcvContact.setAdapter(contactsAdapter);
         rcvContact.setItemAnimator(new DefaultItemAnimator());
-        contactAdapter.setOnContactItemClickListener(this);
+        contactsAdapter.setOnContactItemClickListener(this);
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -58,7 +60,7 @@ public class ContactActivity extends AppCompatActivity implements ContactAdapter
 
     @Override
     public void onContactItemClick(int position) {
-        Toast.makeText(this, "item clicked " + position, Toast.LENGTH_SHORT).show();
+        goToContactDetailActivity(contactEntityList.get(position).getName());
     }
 
     @Override
@@ -66,7 +68,7 @@ public class ContactActivity extends AppCompatActivity implements ContactAdapter
         Toast.makeText(this, "onLongClick", Toast.LENGTH_SHORT).show();
         //actionMode = startSupportActionMode(actionModeCallback);
 
-        contactAdapter.toggleSelection(position);
+        contactsAdapter.toggleSelection(position);
     }
 
     private class ActionModeCallback implements ActionMode.Callback {
@@ -86,7 +88,7 @@ public class ContactActivity extends AppCompatActivity implements ContactAdapter
         public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
             if (item.getItemId() == R.id.action_select_all) {
 
-                Toast.makeText(ContactActivity.this, "YEAH!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ContactsActivity.this, "YEAH!", Toast.LENGTH_SHORT).show();
                 mode.finish();
                 return true;
             }
@@ -97,6 +99,13 @@ public class ContactActivity extends AppCompatActivity implements ContactAdapter
         public void onDestroyActionMode(ActionMode mode) {
             actionMode = null;
         }
+    }
+
+
+    public void goToContactDetailActivity(String title) {
+        Intent intent = new Intent(ContactsActivity.this, ContactDetailActivity.class);
+        intent.putExtra("title", title);
+        startActivity(intent);
     }
 
 }

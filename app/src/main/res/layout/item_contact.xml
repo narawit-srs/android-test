@@ -7,9 +7,10 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
+        android:id="@+id/llContact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent">
+        android:background="?attr/selectableItemBackground">
 
         <FrameLayout
             android:layout_width="wrap_content"
@@ -69,5 +70,12 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnFake"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|end"
+        android:text="fake" />
 
 </FrameLayout>
