@@ -1,4 +1,4 @@
-package com.orbismobile.testingforandroid.view.home;
+package com.orbismobile.testingforandroid.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,13 +9,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.widget.Button;
 
 import com.orbismobile.testingforandroid.R;
+import com.orbismobile.testingforandroid.view.contact.ContactsActivity;
+import com.orbismobile.testingforandroid.view.pet.PetSectionsActivity;
 
-public class MainActivity extends AppCompatActivity {
-
-    private String email;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,15 +24,9 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        TextView lblMessage = findViewById(R.id.lblMessage);
-
-        Intent intent = getIntent();
-        if (intent != null) {
-            Bundle bundle = intent.getExtras();
-            email = bundle.getString("email");
-        }
-
-        lblMessage.setText("You're welcome! " + email);
+        Button btnEspresso1 = findViewById(R.id.btnEspresso1);
+        Button btnEspresso2 = findViewById(R.id.btnEspresso2);
+        Button btnUnitTest = findViewById(R.id.btnUnitTest);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        btnEspresso1.setOnClickListener(this);
+        btnEspresso2.setOnClickListener(this);
+        btnUnitTest.setOnClickListener(this);
     }
 
     @Override
@@ -66,4 +64,18 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btnEspresso1:
+                startActivity(new Intent(this, ContactsActivity.class));
+                break;
+            case R.id.btnEspresso2:
+                startActivity(new Intent(this, PetSectionsActivity.class));
+                break;
+            case R.id.btnUnitTest:
+                break;
+
+        }
+    }
 }
