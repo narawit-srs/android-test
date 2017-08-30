@@ -8,15 +8,25 @@ import java.util.List;
 
 public class PetSectionEntity {
 
+    private int id;
     private String title;
     private List<PetEntity> petEntities;
 
     public PetSectionEntity() {
     }
 
-    public PetSectionEntity(String title, List<PetEntity> petEntities) {
+    public PetSectionEntity(int id, String title, List<PetEntity> petEntities) {
+        this.id = id;
         this.title = title;
         this.petEntities = petEntities;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {

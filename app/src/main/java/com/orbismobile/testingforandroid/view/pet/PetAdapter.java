@@ -19,20 +19,22 @@ import java.util.List;
 
 public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetItemViewHolder> {
 
-    private List<PetEntity> petEntities;
+    public List<PetEntity> petEntities;
 
-    PetAdapter(List<PetEntity> petEntities) {
+
+    public PetAdapter(List<PetEntity> petEntities) {
         this.petEntities = petEntities;
     }
 
-    private OnContactItemClickListener onContactItemClickListener;
 
-    interface OnContactItemClickListener {
-        void onContactItemClick(int position);
+    private OnPetItemClickListener onPetItemClickListener;
+
+    interface OnPetItemClickListener {
+        void onPetItemClick(int position);
     }
 
-    void setOnContactItemClickListener(OnContactItemClickListener onContactItemClickListener) {
-        this.onContactItemClickListener = onContactItemClickListener;
+    void setOnContactItemClickListener(OnPetItemClickListener onPetItemClickListener) {
+        this.onPetItemClickListener = onPetItemClickListener;
     }
 
 
@@ -45,10 +47,8 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetItemViewHolde
     @Override
     public void onBindViewHolder(PetItemViewHolder holder, int position) {
 
-        //Log.e("evaluemos ","evaluemos " + position);
-
-
         holder.lblPetName.setText(petEntities.get(position).getName());
+
     }
 
     @Override
@@ -63,17 +63,13 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetItemViewHolde
         private PetItemViewHolder(View itemView) {
             super(itemView);
             lblPetName = itemView.findViewById(R.id.lblPetName);
+
+            itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
-            switch (view.getId()){
-                case R.id.btnFake:
-                    Toast.makeText(itemView.getContext(), "position: " +getAdapterPosition(), Toast.LENGTH_SHORT).show();
-                    break;
-                default:
-                    break;
-            }
+            Toast.makeText(itemView.getContext(), petEntities.get(getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
         }
     }
 }

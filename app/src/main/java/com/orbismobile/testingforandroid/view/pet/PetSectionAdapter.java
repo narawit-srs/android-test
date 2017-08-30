@@ -49,18 +49,10 @@ public class PetSectionAdapter extends RecyclerView.Adapter<PetSectionAdapter.Co
     public void onBindViewHolder(ContactItemViewHolder holder, int position) {
 
         holder.lblSectionTitle.setText(petSectionEntities.get(position).getTitle());
+        holder.rcvHorizontal.setTag(position);
 
-
-        Log.e("ONE TIME----","ONE TIME " + holder.getPetEntities());
-        //Log.e("ONE TIME----","ONE TIME " + holder.isNotifiedOneTime());
-        if (holder.getPetEntities() == null) {
-
-            holder.petEntities = new ArrayList<>();
+        if (holder.getPetEntities().isEmpty()) {
             holder.petEntities.addAll(petSectionEntities.get(position).getPetEntities());
-            holder.petAdapter = new PetAdapter(holder.petEntities);
-            holder.rcvHorizontal.setAdapter(holder.petAdapter);
-
-
         }else{
             holder.petEntities.clear();
             holder.petEntities.addAll(petSectionEntities.get(position).getPetEntities());
@@ -77,14 +69,14 @@ public class PetSectionAdapter extends RecyclerView.Adapter<PetSectionAdapter.Co
 
         private TextView lblSectionTitle;
         private RecyclerView rcvHorizontal;
+        private List<PetEntity> petEntities = new ArrayList<>();
         private PetAdapter petAdapter;
-        private List<PetEntity> petEntities;
 
         private ContactItemViewHolder(View itemView) {
             super(itemView);
             lblSectionTitle = itemView.findViewById(R.id.lblSectionTitle);
             rcvHorizontal = itemView.findViewById(R.id.rcvHorizontal);
-            //petAdapter = new PetAdapter();
+            petAdapter = new PetAdapter(petEntities);
             rcvHorizontal.setAdapter(petAdapter);
         }
 
@@ -110,4 +102,5 @@ public class PetSectionAdapter extends RecyclerView.Adapter<PetSectionAdapter.Co
             return true;
         }
     }
+
 }

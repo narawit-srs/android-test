@@ -42,12 +42,12 @@ public class PetSectionsActivity extends AppCompatActivity {
             }
         });
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 100; i++) {
             petEntities = new ArrayList<>();
             for (int j = 0; j < 10; j++) {
                 petEntities.add(new PetEntity("pet " +i+" - "+ j));
             }
-            petSectionEntities.add(new PetSectionEntity("TITLE " + i, petEntities));
+            petSectionEntities.add(new PetSectionEntity(i,"TITLE " + i, petEntities));
         }
 
         petSectionAdapter = new PetSectionAdapter(petSectionEntities);
