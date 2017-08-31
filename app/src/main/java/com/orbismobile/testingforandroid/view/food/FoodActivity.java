@@ -6,7 +6,6 @@ import android.support.design.widget.Snackbar;
 import android.support.test.espresso.idling.CountingIdlingResource;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -104,7 +103,7 @@ public class FoodActivity extends AppCompatActivity {
 
         countingIdlingResource.increment();
 
-        WinGokuAPI.Factory.getIstance().getFake("https://jsonplaceholder.typicode.com/posts").enqueue(new Callback<List<FakeResponse>>() {
+        FakeAPI.Factory.getIstance().getFake("https://jsonplaceholder.typicode.com/posts").enqueue(new Callback<List<FakeResponse>>() {
             @Override
             public void onResponse(Call<List<FakeResponse>> call, Response<List<FakeResponse>> response) {
                 if (response.isSuccessful()) {

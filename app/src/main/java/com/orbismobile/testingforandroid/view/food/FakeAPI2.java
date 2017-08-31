@@ -1,7 +1,6 @@
 package com.orbismobile.testingforandroid.view.food;
 
 import android.support.test.espresso.IdlingResource;
-import android.util.Log;
 
 import com.jakewharton.espresso.OkHttp3IdlingResource;
 import com.orbismobile.testingforandroid.BuildConfig;
@@ -21,15 +20,15 @@ import retrofit2.http.Url;
  * Created by carlosleonardocamilovargashuaman on 8/31/17.
  */
 
-public interface WinGokuAPI2 {
+public interface FakeAPI2 {
 
     final String BASE_URL = "http://wingoku.com";
 
     class Factory {
-        private static WinGokuAPI2 WinGokuAPI;
+        private static FakeAPI2 WinGokuAPI;
         //public static MyExecutor executor;
 
-        public static WinGokuAPI2 getIstance() {
+        public static FakeAPI2 getIstance() {
             if (WinGokuAPI == null) {
 
                 HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
@@ -60,7 +59,7 @@ public interface WinGokuAPI2 {
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();
 
-                WinGokuAPI = client.create(WinGokuAPI2.class);
+                WinGokuAPI = client.create(FakeAPI2.class);
                 return WinGokuAPI;
             } else {
                 return WinGokuAPI;
