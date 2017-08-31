@@ -19,7 +19,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="66dp" />
+        tools:layout_editor_absoluteY="66dp"
+        app:layout_constraintVertical_chainStyle="spread" />
 
     <Button
         android:id="@+id/btnEspresso1"
@@ -39,11 +40,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="espresso2"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnEspresso1"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="274dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btnIdlingResource" />
+
+    <Button
+        android:id="@+id/btnIdlingResource"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="IdlingResource"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnEspresso2"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="207dp" />
 </android.support.constraint.ConstraintLayout>
