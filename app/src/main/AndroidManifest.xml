@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.orbismobile.testingforandroid">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -28,10 +30,6 @@
             android:label="@string/title_activity_contact"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".view.longlist.LongActivity"
-            android:label="@string/title_activity_long"
-            android:theme="@style/AppTheme" />
-        <activity
             android:name=".view.contactdetail.ContactDetailActivity"
             android:label="@string/title_activity_contact_detail"
             android:theme="@style/AppTheme" />
@@ -41,8 +39,12 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".view.profile.ProfileActivity"
-            android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme"></activity>
+            android:label="@string/title_activity_home" />
+
+        <activity
+            android:name=".view.food.FoodActivity"
+            android:label="@string/title_activity_food"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

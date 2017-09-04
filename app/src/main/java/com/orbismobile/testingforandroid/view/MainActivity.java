@@ -14,6 +14,7 @@ import android.widget.Button;
 import com.orbismobile.testingforandroid.R;
 import com.orbismobile.testingforandroid.view.contact.ContactsActivity;
 import com.orbismobile.testingforandroid.view.login.LoginActivity;
+import com.orbismobile.testingforandroid.view.food.FoodActivity;
 import com.orbismobile.testingforandroid.view.pet.PetSectionsActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -29,6 +30,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button btnEspresso2 = findViewById(R.id.btnEspresso2);
         Button btnEspresso3 = findViewById(R.id.btnEspresso3);
 
+        Button btnIdlingResource = findViewById(R.id.btnIdlingResource);
+
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnEspresso1.setOnClickListener(this);
         btnEspresso2.setOnClickListener(this);
         btnEspresso3.setOnClickListener(this);
+        btnIdlingResource.setOnClickListener(this);
     }
 
     @Override
@@ -77,7 +82,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnEspresso3:
                 startActivity(new Intent(this, PetSectionsActivity.class));
                 break;
-
+            case R.id.btnIdlingResource:
+                startActivity(new Intent(this, FoodActivity.class));
+                break;
         }
     }
 }
