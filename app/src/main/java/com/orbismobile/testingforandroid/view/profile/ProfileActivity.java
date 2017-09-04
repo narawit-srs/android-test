@@ -1,41 +1,48 @@
-package com.orbismobile.testingforandroid.view.login;
+package com.orbismobile.testingforandroid.view.profile;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.orbismobile.testingforandroid.R;
-import com.orbismobile.testingforandroid.view.profile.ProfileActivity;
 
-public class LoginActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity {
 
-    private static final int LOGIN_DATA_TAG = 0;
-    private TextInputEditText txtEmail;
-    private TextInputEditText txtPassword;
+    private TextView lblUser;
+    private Button btnOne;
+    private Button btnTwo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_profile);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        txtEmail = findViewById(R.id.txtEmail);
-        txtPassword = findViewById(R.id.txtPassword);
-        Button btnLogin = findViewById(R.id.btnLogin);
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        lblUser = findViewById(R.id.lblUser);
+        btnOne = findViewById(R.id.btnOne);
+        btnTwo = findViewById(R.id.btnTwo);
+
+        String email = getIntent().getStringExtra("email");
+        lblUser.setText("You're welcome! "+email);
+
+        btnOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                lblUser.setText("btnOne");
+            }
+        });
 
-                Intent i = new Intent(LoginActivity.this, ProfileActivity.class);
-                i.putExtra("email", txtEmail.getText().toString());
-                startActivityForResult(i, LOGIN_DATA_TAG);
+        btnTwo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                lblUser.setText("btnTwo");
             }
         });
 

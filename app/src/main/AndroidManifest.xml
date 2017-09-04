@@ -38,7 +38,11 @@
         <activity
             android:name=".view.pet.PetSectionsActivity"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".view.profile.ProfileActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

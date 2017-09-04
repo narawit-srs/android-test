@@ -9,11 +9,11 @@
     tools:showIn="@layout/activity_main">
 
     <Button
-        android:id="@+id/btnUnitTest"
+        android:id="@+id/btnEspresso1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="unit test"
-        app:layout_constraintBottom_toTopOf="@+id/btnEspresso1"
+        android:text="Espresso1"
+        app:layout_constraintBottom_toTopOf="@+id/btnEspresso2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,28 +22,28 @@
         tools:layout_editor_absoluteY="66dp" />
 
     <Button
-        android:id="@+id/btnEspresso1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="espresso1"
-        app:layout_constraintBottom_toTopOf="@+id/btnEspresso2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnUnitTest"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="161dp" />
-
-    <Button
         android:id="@+id/btnEspresso2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="espresso2"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnEspresso3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnEspresso1"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="161dp" />
+
+    <Button
+        android:id="@+id/btnEspresso3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="espresso3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnEspresso2"
         tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="274dp" />
 </android.support.constraint.ConstraintLayout>

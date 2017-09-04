@@ -26,7 +26,7 @@ import static org.hamcrest.Matchers.allOf;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 @RunWith(AndroidJUnit4.class)
-public class ExampleInstrumentedTest {
+public class LoginInstrumentedTest {
 
     private String email;
     private String password;

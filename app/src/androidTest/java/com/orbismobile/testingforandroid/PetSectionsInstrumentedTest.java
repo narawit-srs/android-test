@@ -29,7 +29,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withTagKey;
  * Created by Carlos Leonardo Camilo Vargas Huamán on 8/30/17.
  */
 @RunWith(AndroidJUnit4.class)
-public class PetSectionsInstrumentationTest {
+public class PetSectionsInstrumentedTest {
 
     @Rule
     public ActivityTestRule<PetSectionsActivity> petSectionsActivityTestRule =

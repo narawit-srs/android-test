@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import com.orbismobile.testingforandroid.R;
 import com.orbismobile.testingforandroid.view.contact.ContactsActivity;
+import com.orbismobile.testingforandroid.view.login.LoginActivity;
 import com.orbismobile.testingforandroid.view.pet.PetSectionsActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button btnEspresso1 = findViewById(R.id.btnEspresso1);
         Button btnEspresso2 = findViewById(R.id.btnEspresso2);
-        Button btnUnitTest = findViewById(R.id.btnUnitTest);
+        Button btnEspresso3 = findViewById(R.id.btnEspresso3);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnEspresso1.setOnClickListener(this);
         btnEspresso2.setOnClickListener(this);
-        btnUnitTest.setOnClickListener(this);
+        btnEspresso3.setOnClickListener(this);
     }
 
     @Override
@@ -68,12 +69,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnEspresso1:
-                startActivity(new Intent(this, ContactsActivity.class));
+                startActivity(new Intent(this, LoginActivity.class));
                 break;
             case R.id.btnEspresso2:
-                startActivity(new Intent(this, PetSectionsActivity.class));
+                startActivity(new Intent(this, ContactsActivity.class));
                 break;
-            case R.id.btnUnitTest:
+            case R.id.btnEspresso3:
+                startActivity(new Intent(this, PetSectionsActivity.class));
                 break;
 
         }

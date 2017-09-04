@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.orbismobile.testingforandroid.view.profile.ProfileActivity"
+    tools:showIn="@layout/activity_profile">
+
+    <TextView
+        android:id="@+id/lblUser"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:text="TextView"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.256" />
+
+    <Button
+        android:id="@+id/btnOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:text="Hola"
+        app:layout_constraintEnd_toStartOf="@+id/btnTwo"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblUser" />
+
+    <Button
+        android:id="@+id/btnTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hola"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnOne"
+        app:layout_constraintTop_toTopOf="@+id/btnOne" />
+</android.support.constraint.ConstraintLayout>

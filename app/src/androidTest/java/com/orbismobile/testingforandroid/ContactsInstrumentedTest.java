@@ -31,7 +31,7 @@ import static org.hamcrest.Matchers.allOf;
  * Created by Carlos Leonardo Camilo Vargas Huamán on 8/27/17.
  */
 @RunWith(AndroidJUnit4.class)
-public class ContactsInstrumentationTest {
+public class ContactsInstrumentedTest {
 
     @Rule
     public ActivityTestRule<ContactsActivity> activityTestRule =
