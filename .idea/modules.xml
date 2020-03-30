@@ -3,9 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndroidStudioCanaryProjects.iml" filepath="$PROJECT_DIR$/AndroidStudioCanaryProjects.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidStudioProjects-android-TestingForAndroid.iml" filepath="$PROJECT_DIR$/AndroidStudioProjects-android-TestingForAndroid.iml" group="android-TestingForAndroid" />
       <module fileurl="file://$PROJECT_DIR$/android-TestingForAndroid.iml" filepath="$PROJECT_DIR$/android-TestingForAndroid.iml" />
-      <module fileurl="file://$PROJECT_DIR$/android-TestingForAndroid.iml" filepath="$PROJECT_DIR$/android-TestingForAndroid.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/android-TestingForAndroid-app.iml" filepath="$PROJECT_DIR$/app/android-TestingForAndroid-app.iml" group="android-TestingForAndroid/app" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
