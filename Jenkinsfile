@@ -18,13 +18,13 @@ pipeline {
         stage('UI Tests') {
             steps {
                 slackSend color: "#2196F3", channel: "@carlos.vargas.huaman", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
-                echo './gradlew connectedDebugAndroidTest'
+                sh './gradlew connectedDebugAndroidTest'
             }
         }
         stage('Lint') {
             steps {
                 slackSend color: "#2196F3", channel: "@carlos.vargas.huaman", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
-                echo './gradlew lintDebug'
+                sh './gradlew lintDebug'
             }
         }
         stage('Deploy') {
