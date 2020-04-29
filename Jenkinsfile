@@ -1,6 +1,6 @@
 #!groovy
 pipeline {
-    agent any
+    agent { node { label 'android' } }
 
     stages {
         stage('Build') {
