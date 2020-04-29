@@ -9,10 +9,22 @@ pipeline {
                 sh "./gradlew assembleDebug"
             }
         }
-        stage('Test') {
+        stage('Unit Tests') {
             steps {
                 slackSend color: "#2196F3", channel: "@carlos.vargas.huaman", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
                 sh "./gradlew testDebugUnitTest"
+            }
+        }
+        stage('UI Tests') {
+            steps {
+                slackSend color: "#2196F3", channel: "@carlos.vargas.huaman", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+                echo './gradlew connectedDebugAndroidTest'
+            }
+        }
+        stage('Lint') {
+            steps {
+                slackSend color: "#2196F3", channel: "@carlos.vargas.huaman", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+                echo './gradlew lintDebug'
             }
         }
         stage('Deploy') {
