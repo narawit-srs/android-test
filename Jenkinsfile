@@ -46,11 +46,6 @@ pipeline {
             }
         }
         stage("Tag Code") {
-            when {
-                expression {
-                    return (!params.TAG_NAME.isEmpty()) && (!params.TAG_MESSAGE.isEmpty())
-                }
-            }
             steps {
                 echo 'Tagging code....'
             }
