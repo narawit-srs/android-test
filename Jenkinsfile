@@ -10,6 +10,8 @@ pipeline {
         string(name: "TAG_MESSAGE", defaultValue: "", description: "The message of your tag")
     }
 
+    tool 'openjdk'
+
     stages {
         stage('Build') {
             steps {
