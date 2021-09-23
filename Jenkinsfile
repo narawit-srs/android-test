@@ -1,6 +1,6 @@
 #!groovy
 pipeline {
-    agent { node { label 'android' } }
+    agent { node { label 'master' } }
 
     parameters {
         choice(name: "ENVIRONMENT", choices: "NINGUNO\nDEV\nPRO", description: "The environment to be compiled")
@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                slackSend color: "#2196F3", channel: "@carlos.vargas.huaman", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+                // slackSend color: "#2196F3", channel: "@carlos.vargas.huaman", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
                 sh "./gradlew assembleDebug"
             }
         }
@@ -21,13 +21,13 @@ pipeline {
             parallel {
                 stage('Unit Tests') {
                     steps {
-                        slackSend color: "#2196F3", channel: "@carlos.vargas.huaman", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+                        // slackSend color: "#2196F3", channel: "@carlos.vargas.huaman", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
                         sh "./gradlew testDebugUnitTest"
                     }
                 }
                 stage('UI Tests') {
                     steps {
-                        slackSend color: "#2196F3", channel: "@carlos.vargas.huaman", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+                        // slackSend color: "#2196F3", channel: "@carlos.vargas.huaman", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
                         sh './gradlew connectedDebugAndroidTest'
                     }
                 }
@@ -35,13 +35,13 @@ pipeline {
         }
         stage('Lint') {
             steps {
-                slackSend color: "#2196F3", channel: "@carlos.vargas.huaman", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+                // slackSend color: "#2196F3", channel: "@carlos.vargas.huaman", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
                 sh './gradlew lintDebug'
             }
         }
         stage('Deploy') {
             steps {
-                slackSend color: "#2196F3", channel: "@carlos.vargas.huaman", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+                // slackSend color: "#2196F3", channel: "@carlos.vargas.huaman", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
                 echo 'Deploying....'
             }
         }
